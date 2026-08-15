@@ -13,7 +13,7 @@ export const profile = {
   // Create a free Formspree form with your Gmail as its recipient, then paste
   // only its opaque endpoint ID here (for example "abcd1234"). Your Gmail is
   // never included in public site code.
-  formspreeFormId: "",
+  formspreeFormId: "mgawlykb",
   bio: "Photographer for 4 years, Computer Science Student at TAMU.",
   socials: {
     github: "https://github.com/dizmerly",
