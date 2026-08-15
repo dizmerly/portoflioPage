@@ -9,9 +9,12 @@
 export const profile = {
   name: "Daniel Izmerly",
   role: "Developer · Photographer",
-  location: "Based anywhere",
-  email: "hello@danielizmerly.com",
-  bio: "I build considered digital experiences and collect the quiet details in between.",
+  location: "Austin/College Station TX",
+  // Create a free Formspree form with your Gmail as its recipient, then paste
+  // only its opaque endpoint ID here (for example "abcd1234"). Your Gmail is
+  // never included in public site code.
+  formspreeFormId: "",
+  bio: "Photographer for 4 years, Computer Science Student at TAMU.",
   socials: {
     github: "https://github.com/dizmerly",
     instagram: "https://www.instagram.com/dizmerly/",
@@ -19,22 +22,15 @@ export const profile = {
   },
 };
 
-// Keep this list short and sharp—three to six great projects reads best.
+// One excellent project is stronger than a padded grid of unfinished work.
 export const projects = [
   {
-    title: "Archive / 01", type: "Full-stack web app", number: "01",
-    description: "A focused product description goes here. Explain the problem, your role, and why it mattered in two short lines.",
-    stack: ["React", "TypeScript", "API"], url: "https://github.com/your-username/project-one",
-  },
-  {
-    title: "Signal Garden", type: "Creative coding", number: "02",
-    description: "Use this space for a project with a different flavor: an experiment, tool, open-source contribution, or visual study.",
-    stack: ["JavaScript", "Canvas", "CSS"], url: "https://github.com/your-username/project-two",
-  },
-  {
-    title: "Field Notes", type: "Design system", number: "03",
-    description: "A third project rounds out the story. Link to a live build, case study, repository, or wherever the work lives.",
-    stack: ["Design", "Next.js", "A11y"], url: "https://github.com/your-username/project-three",
+    title: "Chaotic Football",
+    type: "Godot 2D Pixel Art Football/Smash Style Game",
+    number: "01",
+    description: "A chaotic game with the goal of scoring the ball into the other team's goal.",
+    stack: ["Godot"],
+    url: "https://github.com/dizmerly/chaoticFootball",
   },
 ];
 

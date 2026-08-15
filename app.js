@@ -11,7 +11,6 @@ function fillProfile() {
   document.querySelectorAll("[data-role]").forEach((el) => (el.textContent = profile.role));
   document.querySelectorAll("[data-location]").forEach((el) => (el.textContent = profile.location));
   document.querySelectorAll("[data-bio]").forEach((el) => (el.textContent = profile.bio));
-  document.querySelectorAll("[data-email]").forEach((el) => { el.href = `mailto:${profile.email}`; el.textContent = profile.email; });
   document.querySelectorAll("[data-social]").forEach((el) => { const url = profile.socials[el.dataset.social]; if (url) el.href = url; });
 }
 
@@ -54,9 +53,40 @@ function setupMenu() {
   nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => { nav.classList.remove("is-open"); button.setAttribute("aria-expanded", "false"); }));
 }
 
+function setupContactForm() {
+  const form = $("[data-contact-form]");
+  if (!form) return;
+  const status = $("[data-form-status]", form);
+  const submit = $("button[type='submit']", form);
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!profile.formspreeFormId) {
+      status.textContent = "Contact form setup is almost done—please add the Formspree form ID.";
+      return;
+    }
+    submit.disabled = true;
+    status.textContent = "Sending…";
+    try {
+      const response = await fetch(`https://formspree.io/f/${profile.formspreeFormId}`, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (!response.ok) throw new Error("Request failed");
+      form.reset();
+      status.textContent = "Message sent. Thank you.";
+    } catch {
+      status.textContent = "Something went wrong. Please try again shortly.";
+    } finally {
+      submit.disabled = false;
+    }
+  });
+}
+
 function setupReveals() {
   const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("is-visible")), { threshold: 0.12 });
   document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
 }
 
-fillProfile(); renderProjects(); renderPhotos(); setupLightbox(); setupMenu(); setupReveals();
+fillProfile(); renderProjects(); renderPhotos(); setupLightbox(); setupMenu(); setupContactForm(); setupReveals();

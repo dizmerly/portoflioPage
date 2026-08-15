@@ -8,6 +8,10 @@ A fast, dependency-free portfolio designed for GitHub Pages. It includes a devel
 2. Put your images in `photos/`, then set each photo's `image` value to a matching path such as `photos/chicago-dawn.jpg`.
 3. Replace `public/og.png` with a social-sharing image bearing your name when you are ready.
 
+## Private contact form
+
+The contact box is ready but needs your Formspree form ID before it can deliver mail. Create a free form with your Gmail as the recipient, then paste only its opaque ID into `formspreeFormId` in `site-data.js`. Your Gmail address is never published in the site source. [Formspree's HTML-form guide](https://help.formspree.io/articles/building-your-form/building-an-html-form/) covers the one-time setup.
+
 ## Publish on GitHub Pages
 
 1. Push this repository to GitHub.
