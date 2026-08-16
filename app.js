@@ -84,9 +84,32 @@ function setupContactForm() {
   });
 }
 
+function setupHeroMotion() {
+  const hero = $(".hero");
+  const photo = $(".hero-photo");
+  const frame = $(".hero-frame");
+  if (!hero || !photo || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  // Dark-first cinematic depth: the photo moves more slowly than the page.
+  let frameId;
+  const update = () => {
+    frameId = undefined;
+    const distance = Math.max(0, Math.min(window.scrollY, window.innerHeight));
+    photo.style.transform = `translate3d(0, ${distance * 0.16}px, 0) scale(${1 + distance * 0.00012})`;
+    frame.style.transform = `translate3d(0, ${distance * 0.07}px, 0)`;
+  };
+  const requestUpdate = () => {
+    if (!frameId) frameId = window.requestAnimationFrame(update);
+  };
+
+  window.requestAnimationFrame(() => document.body.classList.add("is-loaded"));
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  update();
+}
+
 function setupReveals() {
   const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("is-visible")), { threshold: 0.12 });
   document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
 }
 
-fillProfile(); renderProjects(); renderPhotos(); setupLightbox(); setupMenu(); setupContactForm(); setupReveals();
+fillProfile(); renderProjects(); renderPhotos(); setupLightbox(); setupMenu(); setupContactForm(); setupHeroMotion(); setupReveals();

@@ -1,5 +1,74 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Photography by Your Name."><link rel="stylesheet" href="styles.css"><title>Photography — Your Name</title></head>
-<body class="photo-page"><div class="grain" aria-hidden="true"></div><header class="site-header"><a class="wordmark" href="index.html" aria-label="Back home"><span data-name>Your Name</span><i></i></a><nav class="desktop-nav" aria-label="Primary navigation"><a href="index.html#work">Work</a><a class="active" href="photography.html">Photography</a><a href="index.html#about">About</a></nav><a class="back-link" href="index.html">← Home</a></header>
-<main><section class="photo-hero section-wrap"><p class="eyebrow reveal">Photography / 2026</p><h1 class="reveal">Looking for the<br><em>in-between.</em></h1><p class="reveal">A running collection of places, texture, and passing light.</p></section><section class="photo-grid section-wrap" data-photo-grid aria-label="Photography collection"></section><section class="contact-strip section-wrap reveal"><p>Like what you see?</p><a class="text-link" data-social="instagram" href="#" target="_blank" rel="noreferrer">Follow along on Instagram <span aria-hidden="true">↗</span></a></section></main>
-<footer class="site-footer section-wrap"><p>© <span data-name>Your Name</span> <span id="year"></span></p><div><a data-social="instagram" href="#" target="_blank" rel="noreferrer">Instagram</a><a data-social="github" href="#" target="_blank" rel="noreferrer">GitHub</a></div></footer><dialog id="lightbox" aria-label="Photography preview"><button class="close-button" data-close-lightbox aria-label="Close preview">×</button><img data-lightbox-image alt="" hidden><div data-lightbox-placeholder class="lightbox-placeholder"></div><p data-lightbox-caption></p></dialog><script type="module" src="app.js"></script><script>document.querySelector('#year').textContent = new Date().getFullYear()</script></body></html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Photography by Daniel Izmerly." />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Photography — Daniel Izmerly</title>
+  </head>
+
+  <body class="photo-page">
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="wordmark" href="index.html" aria-label="Back home"><span data-name>Daniel Izmerly</span><i></i></a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="index.html#work">Work</a>
+        <a class="active" href="photography.html">Photography</a>
+        <a href="index.html#about">About</a>
+      </nav>
+      <a class="back-link" href="index.html">← Home</a>
+    </header>
+
+    <main>
+      <section class="photo-hero section-wrap">
+        <p class="eyebrow reveal">Photography / 2026</p>
+        <h1 class="reveal">Looking for the<br /><em>in-between.</em></h1>
+        <p class="reveal">A running collection of places, texture, and passing light.</p>
+      </section>
+
+      <!-- Interactive A7 IV model: CC BY attribution is kept visible below. -->
+      <section class="camera-stage section-wrap reveal" aria-label="Interactive Sony A7 IV camera model">
+        <div class="camera-copy">
+          <p class="eyebrow">My camera</p>
+          <h2>Built for<br />the walk.</h2>
+          <p>Drag to explore the camera. The model rotates on its own when the page opens.</p>
+        </div>
+        <div class="camera-viewer">
+          <div class="camera-ring ring-a" aria-hidden="true"></div>
+          <div class="camera-ring ring-b" aria-hidden="true"></div>
+          <iframe
+            title="Interactive Sony A7 IV 3D model"
+            src="https://sketchfab.com/models/874d213bf51b4523b81abc95d3e24c03/embed?autospin=1&autostart=1&ui_controls=0&ui_infos=0&ui_stop=0"
+            allow="autoplay; fullscreen; xr-spatial-tracking"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p class="camera-credit">3D model <a href="https://sketchfab.com/3d-models/sony-a7iv-874d213bf51b4523b81abc95d3e24c03" target="_blank" rel="noreferrer">SONY A7IV</a> by <a href="https://sketchfab.com/MarcosDPF" target="_blank" rel="noreferrer">MarcosDPF</a>, licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>.</p>
+      </section>
+
+      <section class="photo-grid section-wrap" data-photo-grid aria-label="Photography collection"></section>
+
+      <section class="contact-strip section-wrap reveal">
+        <p>Like what you see?</p>
+        <a class="text-link" data-social="instagram" href="#" target="_blank" rel="noreferrer">Follow along on Instagram <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer section-wrap">
+      <p>© <span data-name>Daniel Izmerly</span> <span id="year"></span></p>
+      <div><a data-social="instagram" href="#" target="_blank" rel="noreferrer">Instagram</a><a data-social="github" href="#" target="_blank" rel="noreferrer">GitHub</a></div>
+    </footer>
+
+    <dialog id="lightbox" aria-label="Photography preview">
+      <button class="close-button" data-close-lightbox aria-label="Close preview">×</button>
+      <img data-lightbox-image alt="" hidden />
+      <div data-lightbox-placeholder class="lightbox-placeholder"></div>
+      <p data-lightbox-caption></p>
+    </dialog>
+
+    <script type="module" src="app.js"></script>
+    <script>document.querySelector('#year').textContent = new Date().getFullYear()</script>
+  </body>
+</html>

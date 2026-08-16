@@ -36,23 +36,35 @@
 
     <main id="top">
       <!-- HERO COPY: Change these two lines to set the first impression. -->
-      <section class="hero section-wrap">
-        <p class="hero-kicker reveal">
-          <span class="pulse"></span>
-          Available for selected work · <span data-location>Austin/College Station TX</span>
-        </p>
-
-        <h1 class="reveal">
-          <span>I make useful things</span>
-          <span>and frame what I notice.</span>
-        </h1>
-
-        <div class="hero-foot reveal">
-          <!-- The bio is managed in site-data.js. -->
-          <p data-bio>Photographer for 4 years, Computer Science Student at TAMU.</p>
-          <a class="round-link" href="#work">Explore <span aria-hidden="true">↓</span></a>
+      <section class="hero section-wrap" aria-label="Introduction">
+        <!-- The image path is intentionally easy to swap in styles.css (.hero-photo). -->
+        <div class="hero-media" aria-hidden="true">
+          <div class="hero-photo"></div>
+          <div class="hero-scrim"></div>
+          <div class="hero-frame"></div>
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
         </div>
-        <div class="hero-orb" aria-hidden="true"></div>
+
+        <div class="hero-content">
+          <p class="hero-kicker reveal">
+            <span class="pulse"></span>
+            Available for selected work · <span data-location>Austin/College Station TX</span>
+          </p>
+
+          <h1 class="hero-title">
+            <span>I make useful things</span>
+            <span>and frame what I notice.</span>
+          </h1>
+
+          <div class="hero-foot reveal">
+            <!-- The bio is managed in site-data.js. -->
+            <p data-bio>Photographer for 4 years, Computer Science Student at TAMU.</p>
+            <a class="round-link" href="#work">Explore <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+
+        <p class="hero-index" aria-hidden="true">DI / 26</p>
       </section>
 
       <section id="work" class="section-wrap work-section">
