@@ -88,15 +88,24 @@ function setupHeroMotion() {
   const hero = $(".hero");
   const photo = $(".hero-photo");
   const frame = $(".hero-frame");
-  if (!hero || !photo || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const stage = $(".hero-stage");
+  const title = $(".hero-title");
+  const kicker = $(".hero-kicker");
+  if (!hero || !photo || !stage || !title || !kicker || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  // Dark-first cinematic depth: the photo moves more slowly than the page.
+  // A scroll scene: the photo drifts forward while copy leaves the stage cleanly.
   let frameId;
   const update = () => {
     frameId = undefined;
-    const distance = Math.max(0, Math.min(window.scrollY, window.innerHeight));
-    photo.style.transform = `translate3d(0, ${distance * 0.16}px, 0) scale(${1 + distance * 0.00012})`;
-    frame.style.transform = `translate3d(0, ${distance * 0.07}px, 0)`;
+    const availableScroll = Math.max(1, hero.offsetHeight - window.innerHeight);
+    const progress = Math.max(0, Math.min(1, (window.scrollY - hero.offsetTop) / availableScroll));
+    photo.style.transform = `translate3d(0, ${progress * 44}px, 0) scale(${1.04 + progress * 0.12})`;
+    photo.style.opacity = String(1 - progress * 0.32);
+    frame.style.transform = `scale(${1 - progress * 0.05})`;
+    title.style.transform = `translate3d(0, ${progress * -62}px, 0)`;
+    title.style.opacity = String(Math.max(0, 1 - progress * 1.1));
+    kicker.style.transform = `translate3d(0, ${progress * -32}px, 0)`;
+    kicker.style.opacity = String(Math.max(0, 1 - progress * 1.4));
   };
   const requestUpdate = () => {
     if (!frameId) frameId = window.requestAnimationFrame(update);
